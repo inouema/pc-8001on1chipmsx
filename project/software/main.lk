@@ -1,0 +1,11 @@
+-mjwx
+-i main.hex
+-b _CODE = 0x0000
+-b _DATA = 0x8000
+-k C:\Program Files\SDCC\bin\..\lib\z80
+-l z80
+mycrt.rel
+iolib.rel
+main.rel
+
+-e

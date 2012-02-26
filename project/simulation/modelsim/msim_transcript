@@ -1,0 +1,206 @@
+# Reading C:/altera/11.1sp1/modelsim_ase/tcl/vsim/pref.tcl 
+# do PC8001_run_msim_rtl_verilog.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying C:\altera\11.1sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied C:\altera\11.1sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vlog -vlog01compat -work work +incdir+D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl {D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ukprom.v}
+# Model Technology ModelSim ALTERA vlog 10.0c Compiler 2011.09 Sep 21 2011
+# -- Compiling module ukprom
+# 
+# Top level modules:
+# 	ukprom
+# vlog -vlog01compat -work work +incdir+D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl {D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ukp.v}
+# Model Technology ModelSim ALTERA vlog 10.0c Compiler 2011.09 Sep 21 2011
+# -- Compiling module ukp
+# -- Compiling module keymap
+# 
+# Top level modules:
+# 	ukp
+# vlog -vlog01compat -work work +incdir+D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl {D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/rtc.v}
+# Model Technology ModelSim ALTERA vlog 10.0c Compiler 2011.09 Sep 21 2011
+# -- Compiling module rtc
+# -- Compiling module count10c
+# -- Compiling module count101
+# -- Compiling module count10
+# -- Compiling module count3c
+# -- Compiling module count4c
+# -- Compiling module count6
+# -- Compiling module count121
+# 
+# Top level modules:
+# 	rtc
+# vlog -vlog01compat -work work +incdir+D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl {D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/pc.v}
+# Model Technology ModelSim ALTERA vlog 10.0c Compiler 2011.09 Sep 21 2011
+# -- Compiling module pc8001
+# 
+# Top level modules:
+# 	pc8001
+# vlog -vlog01compat -work work +incdir+D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl {D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/crtc.v}
+# Model Technology ModelSim ALTERA vlog 10.0c Compiler 2011.09 Sep 21 2011
+# -- Compiling module crtc
+# -- Compiling module colordata
+# -- Compiling module cg
+# 
+# Top level modules:
+# 	crtc
+# vlog -vlog01compat -work work +incdir+D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl {D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/clockgen.v}
+# Model Technology ModelSim ALTERA vlog 10.0c Compiler 2011.09 Sep 21 2011
+# -- Compiling module clockgen
+# 
+# Top level modules:
+# 	clockgen
+# vlog -vlog01compat -work work +incdir+D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/fz80 {D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/fz80/fz80.v}
+# Model Technology ModelSim ALTERA vlog 10.0c Compiler 2011.09 Sep 21 2011
+# -- Compiling module fz80
+# -- Compiling module seq
+# -- Compiling module asu
+# -- Compiling module alu
+# -- Compiling module reg_a
+# -- Compiling module reg_f
+# -- Compiling module reg_simple
+# -- Compiling module reg_simplec
+# -- Compiling module reg_dual2
+# -- Compiling module reg_2
+# -- Compiling module reg_2s
+# -- Compiling module reg_quad3
+# -- Compiling module reg_pch
+# -- Compiling module reg_pcl
+# -- Compiling module reg_r
+# 
+# Top level modules:
+# 	fz80
+# vlog -vlog01compat -work work +incdir+D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ip {D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ip/ARAMB4_S8_S8.v}
+# Model Technology ModelSim ALTERA vlog 10.0c Compiler 2011.09 Sep 21 2011
+# -- Compiling module ARAMB4_S8_S8
+# 
+# Top level modules:
+# 	ARAMB4_S8_S8
+# vlog -vlog01compat -work work +incdir+D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ip {D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ip/ARAMB4_S4_S8.v}
+# Model Technology ModelSim ALTERA vlog 10.0c Compiler 2011.09 Sep 21 2011
+# -- Compiling module ARAMB4_S4_S8
+# 
+# Top level modules:
+# 	ARAMB4_S4_S8
+# vlog -vlog01compat -work work +incdir+D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/altip {D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/altip/altip_inside_rom.v}
+# Model Technology ModelSim ALTERA vlog 10.0c Compiler 2011.09 Sep 21 2011
+# -- Compiling module altip_inside_rom
+# 
+# Top level modules:
+# 	altip_inside_rom
+# vlog -vlog01compat -work work +incdir+D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/altip {D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/altip/altip_inside_ram_32KB.v}
+# Model Technology ModelSim ALTERA vlog 10.0c Compiler 2011.09 Sep 21 2011
+# -- Compiling module altip_inside_ram_32KB
+# 
+# Top level modules:
+# 	altip_inside_ram_32KB
+# 
+# vlog -vlog01compat -work work +incdir+D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl {D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/pc-testvench.v}
+# Model Technology ModelSim ALTERA vlog 10.0c Compiler 2011.09 Sep 21 2011
+# -- Compiling module pc8001tv
+# 
+# Top level modules:
+# 	pc8001tv
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclone_ver -L rtl_work -L work -voptargs="+acc" pc8001tv
+# vsim -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclone_ver -L rtl_work -L work -voptargs=\"+acc\" -t 1ps pc8001tv 
+# Loading work.pc8001tv
+# Loading work.pc8001
+# Loading work.fz80
+# Loading work.alu
+# Loading work.asu
+# Loading work.seq
+# Loading work.reg_a
+# Loading work.reg_f
+# Loading work.reg_dual2
+# Loading work.reg_quad3
+# Loading work.reg_2s
+# Loading work.reg_pch
+# Loading work.reg_pcl
+# Loading work.reg_2
+# Loading work.reg_r
+# Loading work.reg_simplec
+# Loading work.reg_simple
+# Loading work.altip_inside_rom
+# Loading altera_mf_ver.altsyncram
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+# Loading work.altip_inside_ram_32KB
+# Loading work.crtc
+# Loading work.colordata
+# Loading work.ARAMB4_S8_S8
+# Loading work.cg
+# Loading work.ukp
+# Loading work.clockgen
+# Loading work.ukprom
+# Loading work.keymap
+# Loading work.ARAMB4_S4_S8
+# Loading work.rtc
+# Loading work.count10
+# Loading work.count6
+# Loading work.count10c
+# Loading work.count3c
+# Loading work.count101
+# Loading work.count4c
+# Loading work.count121
+# ** Warning: (vsim-3017) D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/pc-testvench.v(44): [TFMPC] - Too few port connections. Expected 23, found 11.
+#         Region: /pc8001tv/pc8001
+# ** Warning: (vsim-3722) D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/pc-testvench.v(44): [TFMPC] - Missing connection for port 'vcoclk'.
+# ** Warning: (vsim-3722) D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/pc-testvench.v(44): [TFMPC] - Missing connection for port 'vtune'.
+# ** Warning: (vsim-3722) D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/pc-testvench.v(44): [TFMPC] - Missing connection for port 'usbclk'.
+# ** Warning: (vsim-3722) D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/pc-testvench.v(44): [TFMPC] - Missing connection for port 'clk_out'.
+# ** Warning: (vsim-3722) D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/pc-testvench.v(44): [TFMPC] - Missing connection for port 'usb_dp'.
+# ** Warning: (vsim-3722) D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/pc-testvench.v(44): [TFMPC] - Missing connection for port 'usb_dm'.
+# ** Warning: (vsim-3722) D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/pc-testvench.v(44): [TFMPC] - Missing connection for port 'ind'.
+# ** Warning: (vsim-3722) D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/pc-testvench.v(44): [TFMPC] - Missing connection for port 'y_out'.
+# ** Warning: (vsim-3722) D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/pc-testvench.v(44): [TFMPC] - Missing connection for port 'c_out'.
+# ** Warning: (vsim-3722) D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/pc-testvench.v(44): [TFMPC] - Missing connection for port 'motor'.
+# ** Warning: (vsim-3722) D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/pc-testvench.v(44): [TFMPC] - Missing connection for port 'I_SW_0'.
+# ** Warning: (vsim-3722) D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/pc-testvench.v(44): [TFMPC] - Missing connection for port 'I_SW_1'.
+# ** Warning: (vsim-3017) D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/pc.v(524): [TFMPC] - Too few port connections. Expected 14, found 11.
+#         Region: /pc8001tv/pc8001/crtc
+# ** Warning: (vsim-3722) D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/pc.v(524): [TFMPC] - Missing connection for port 'ram_ce_n'.
+# ** Warning: (vsim-3722) D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/pc.v(524): [TFMPC] - Missing connection for port 'ram_oe_n'.
+# ** Warning: (vsim-3722) D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/pc.v(524): [TFMPC] - Missing connection for port 'ram_we_n'.
+# ** Warning: (vsim-3017) D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ip/ARAMB4_S8_S8.v(87): [TFMPC] - Too few port connections. Expected 23, found 14.
+#         Region: /pc8001tv/pc8001/crtc/rowbuf/altsyncram_component
+# ** Warning: (vsim-3722) D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ip/ARAMB4_S8_S8.v(87): [TFMPC] - Missing connection for port 'rden_a'.
+# ** Warning: (vsim-3722) D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ip/ARAMB4_S8_S8.v(87): [TFMPC] - Missing connection for port 'rden_b'.
+# ** Warning: (vsim-3722) D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ip/ARAMB4_S8_S8.v(87): [TFMPC] - Missing connection for port 'clocken2'.
+# ** Warning: (vsim-3722) D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ip/ARAMB4_S8_S8.v(87): [TFMPC] - Missing connection for port 'clocken3'.
+# ** Warning: (vsim-3722) D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ip/ARAMB4_S8_S8.v(87): [TFMPC] - Missing connection for port 'byteena_a'.
+# ** Warning: (vsim-3722) D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ip/ARAMB4_S8_S8.v(87): [TFMPC] - Missing connection for port 'byteena_b'.
+# ** Warning: (vsim-3722) D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ip/ARAMB4_S8_S8.v(87): [TFMPC] - Missing connection for port 'addressstall_a'.
+# ** Warning: (vsim-3722) D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ip/ARAMB4_S8_S8.v(87): [TFMPC] - Missing connection for port 'addressstall_b'.
+# ** Warning: (vsim-3722) D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ip/ARAMB4_S8_S8.v(87): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ip/ARAMB4_S4_S8.v(87): [TFMPC] - Too few port connections. Expected 23, found 14.
+#         Region: /pc8001tv/pc8001/ukp/keyboard/altsyncram_component
+# ** Warning: (vsim-3722) D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ip/ARAMB4_S4_S8.v(87): [TFMPC] - Missing connection for port 'rden_a'.
+# ** Warning: (vsim-3722) D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ip/ARAMB4_S4_S8.v(87): [TFMPC] - Missing connection for port 'rden_b'.
+# ** Warning: (vsim-3722) D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ip/ARAMB4_S4_S8.v(87): [TFMPC] - Missing connection for port 'clocken2'.
+# ** Warning: (vsim-3722) D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ip/ARAMB4_S4_S8.v(87): [TFMPC] - Missing connection for port 'clocken3'.
+# ** Warning: (vsim-3722) D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ip/ARAMB4_S4_S8.v(87): [TFMPC] - Missing connection for port 'byteena_a'.
+# ** Warning: (vsim-3722) D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ip/ARAMB4_S4_S8.v(87): [TFMPC] - Missing connection for port 'byteena_b'.
+# ** Warning: (vsim-3722) D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ip/ARAMB4_S4_S8.v(87): [TFMPC] - Missing connection for port 'addressstall_a'.
+# ** Warning: (vsim-3722) D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ip/ARAMB4_S4_S8.v(87): [TFMPC] - Missing connection for port 'addressstall_b'.
+# ** Warning: (vsim-3722) D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ip/ARAMB4_S4_S8.v(87): [TFMPC] - Missing connection for port 'eccstatus'.
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# ** Note: $finish    : D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/pc-testvench.v(56)
+#    Time: 10020 us  Iteration: 0  Instance: /pc8001tv
+# 1
+# Break in Module pc8001tv at D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/pc-testvench.v line 56
+# Simulation Breakpoint: 1
+# Break in Module pc8001tv at D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/pc-testvench.v line 56
+# MACRO ./PC8001_run_msim_rtl_verilog.do PAUSED at line 27

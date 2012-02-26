@@ -1,0 +1,18 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods + Flat24  (Zilog Z80 / Hitachi HD64180), page 1.
+
+
+
+                              1 .globl _main
+                              2 
+   0000 CD 00 00              3 call _main
+   0003 C9                    4 ret
+ASxxxx Assembler V02.00 + NoICE + SDCC mods + Flat24  (Zilog Z80 / Hitachi HD64180), page 2.
+
+Symbol Table
+
+    .__.ABS.=  0000 G   |     _main      **** GX
+ASxxxx Assembler V02.00 + NoICE + SDCC mods + Flat24  (Zilog Z80 / Hitachi HD64180), page 3.
+
+Area Table
+
+   0 _CODE      size    4   flags 0

@@ -1,0 +1,26 @@
+XL
+H 7 areas 5 global symbols
+M main
+O -mz80
+S .__.ABS. Def0000
+S _outp Ref0000
+A _CODE size 15 flags 0 addr 0
+S _main Def0000
+S _main_start Def0000
+S _main_end Def0015
+A _DATA size 0 flags 0 addr 0
+A _DABS size 0 flags 8 addr 0
+A _HOME size 0 flags 0 addr 0
+A _GSINIT size 0 flags 0 addr 0
+A _GSFINAL size 0 flags 0 addr 0
+A _CABS size 0 flags 8 addr 0
+T 00 00
+R 00 00 00 00
+T 00 00
+R 00 00 00 00
+T 00 00 21 40 00 E5 CD 00 00 F1 00 21 40 FF E5 CD
+R 00 00 00 00 02 07 01 00
+T 0E 00 00 00 F1 21 00 00 C9
+R 00 00 00 00 02 02 01 00
+T 15 00
+R 00 00 00 00

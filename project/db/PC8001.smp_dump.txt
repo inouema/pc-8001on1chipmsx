@@ -1,0 +1,15 @@
+
+State Machine - |pc8001|ukp:ukp|state
+Name state.S_B0 state.S_LDI1 state.S_LDI0 state.000 state.S_B1 
+state.000 0 0 0 0 0 
+state.S_LDI0 0 0 1 1 0 
+state.S_LDI1 0 1 0 1 0 
+state.S_B0 1 0 0 1 0 
+state.S_B1 0 0 0 1 1 
+
+State Machine - |pc8001|crtc:crtc|state
+Name state.11 state.10 state.01 state.00 
+state.00 0 0 0 0 
+state.01 0 0 1 1 
+state.10 0 1 0 1 
+state.11 1 0 0 1 

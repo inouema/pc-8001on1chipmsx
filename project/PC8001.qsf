@@ -1,0 +1,150 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2011 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus II
+# Version 11.0 Build 157 04/27/2011 SJ Web Edition
+# Date created = 16:04:16  February 25, 2012
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		PC8001_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus II software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY Cyclone
+set_global_assignment -name DEVICE EP1C12Q240C8
+set_global_assignment -name TOP_LEVEL_ENTITY pc8001
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 11.0
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "16:04:16  FEBRUARY 25, 2012"
+set_global_assignment -name LAST_QUARTUS_VERSION 11.0
+set_global_assignment -name DEVICE_FILTER_PACKAGE "ANY QFP"
+set_global_assignment -name DEVICE_FILTER_PIN_COUNT 240
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (Verilog)"
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name VERILOG_FILE rtl/ukprom.v
+set_global_assignment -name VERILOG_FILE rtl/ukp.v
+set_global_assignment -name VERILOG_FILE rtl/switch.v
+set_global_assignment -name VERILOG_FILE rtl/rtc.v
+set_global_assignment -name VERILOG_FILE rtl/pc.v
+set_global_assignment -name VERILOG_FILE rtl/crtc.v
+set_global_assignment -name VERILOG_FILE rtl/clockgen.v
+set_global_assignment -name VERILOG_FILE rtl/boot.v
+set_global_assignment -name VERILOG_FILE rtl/fz80/fz80.v
+set_global_assignment -name VERILOG_FILE rtl/ip/ARAMB4_S8_S8.v
+set_global_assignment -name VERILOG_FILE rtl/ip/ARAMB4_S4_S8.v
+set_global_assignment -name VERILOG_FILE rtl/ip/ARAMB4_S4.v
+set_global_assignment -name USE_CONFIGURATION_DEVICE ON
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED"
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
+set_location_assignment PIN_21 -to I_CLK_21M
+set_location_assignment PIN_153 -to I_nRESET
+set_location_assignment PIN_164 -to O_A[0]
+set_location_assignment PIN_163 -to O_A[1]
+set_location_assignment PIN_166 -to O_A[2]
+set_location_assignment PIN_165 -to O_A[3]
+set_location_assignment PIN_168 -to O_A[4]
+set_location_assignment PIN_167 -to O_A[5]
+set_location_assignment PIN_158 -to O_A[6]
+set_location_assignment PIN_156 -to O_A[7]
+set_location_assignment PIN_160 -to O_A[8]
+set_location_assignment PIN_139 -to O_A[9]
+set_location_assignment PIN_143 -to O_A[10]
+set_location_assignment PIN_141 -to O_A[11]
+set_location_assignment PIN_159 -to O_A[12]
+set_location_assignment PIN_162 -to O_A[13]
+set_location_assignment PIN_161 -to O_A[14]
+set_location_assignment PIN_140 -to O_A[15]
+set_location_assignment PIN_170 -to IO_D[0]
+set_location_assignment PIN_169 -to IO_D[1]
+set_location_assignment PIN_174 -to IO_D[2]
+set_location_assignment PIN_173 -to IO_D[3]
+set_location_assignment PIN_176 -to IO_D[4]
+set_location_assignment PIN_175 -to IO_D[5]
+set_location_assignment PIN_178 -to IO_D[6]
+set_location_assignment PIN_177 -to IO_D[7]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to IO_D[7]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to IO_D[6]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to IO_D[5]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to IO_D[4]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to IO_D[3]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to IO_D[2]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to IO_D[1]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to IO_D[0]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to I_CLK_21M
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to I_nRESET
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to O_A[16]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to O_A[15]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to O_A[14]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to O_A[13]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to O_A[12]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to O_A[11]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to O_A[10]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to O_A[9]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to O_A[8]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to O_A[7]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to O_A[6]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to O_A[5]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to O_A[4]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to O_A[3]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to O_A[2]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to O_A[1]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to O_A[0]
+set_location_assignment PIN_122 -to O_nCS1
+set_location_assignment PIN_123 -to O_nCS2
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to O_nCS1
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to O_nCS2
+set_location_assignment PIN_137 -to O_nRD
+set_location_assignment PIN_136 -to O_nWR
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to O_nRD
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to O_nWR
+set_instance_assignment -name PCI_IO ON -to O_A
+set_instance_assignment -name PCI_IO ON -to IO_D
+set_instance_assignment -name PCI_IO ON -to O_nCS1
+set_instance_assignment -name PCI_IO ON -to O_nCS2
+set_instance_assignment -name PCI_IO ON -to O_nRD
+set_instance_assignment -name PCI_IO ON -to O_nWR
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to O_A
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to IO_D
+set_instance_assignment -name AUTO_GLOBAL_CLOCK ON -to I_CLK_21M
+set_instance_assignment -name AUTO_GLOBAL_CLOCK ON -to I_nRESET
+set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
+set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
+set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH pc8001tv -section_id eda_simulation
+set_global_assignment -name EDA_USER_COMPILED_SIMULATION_LIBRARY_DIRECTORY "D:\\home\\inouema\\work\\PC-8001\\development\\pc-8001on1chipmsx\\rtl\\modelsim_compiled_lib" -section_id eda_simulation
+set_global_assignment -name EDA_TEST_BENCH_NAME pc8001tv -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id pc8001tv
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME pc8001tv -section_id pc8001tv
+set_global_assignment -name EDA_TEST_BENCH_FILE "rtl/pc-testvench.v" -section_id pc8001tv
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS_NO_OUTPUT_GND "AS INPUT TRI-STATED"
+set_global_assignment -name QIP_FILE rtl/altip/altip_inside_rom.qip
+set_global_assignment -name QIP_FILE rtl/altip/altip_inside_ram_32KB.qip
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

@@ -1,0 +1,692 @@
+m255
+K3
+13
+cModel Technology
+Z0 dD:\home\inouema\work\PC-8001\development\pc-8001on1chipmsx\simulation\modelsim
+valtip_inside_ram_32KB
+I44OV`Dn;38l<0lYKRd:0O3
+V1KbiNV[X0idNWmnohVj_T0
+Z1 dD:\home\inouema\work\PC-8001\development\pc-8001on1chipmsx\simulation\modelsim
+w1330237783
+8D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/altip/altip_inside_ram_32KB.v
+FD:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/altip/altip_inside_ram_32KB.v
+L0 39
+Z2 OV;L;10.0c;49
+r1
+31
+Z3 o-vlog01compat -work work -O0
+Z4 !s92 -vlog01compat -work work +incdir+D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/altip -O0
+naltip_inside_ram_32@k@b
+!s100 C0V3NL@YPIHj;UV=g?nP@3
+!s85 0
+!s108 1330240557.079000
+!s107 D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/altip/altip_inside_ram_32KB.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/altip|D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/altip/altip_inside_ram_32KB.v|
+!s101 -O0
+valtip_inside_rom
+IPl0:cW1TW7DEnVic<mF0m0
+V>UD1bdVXEL;DYCL0ER<><2
+R1
+w1330240489
+8D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/altip/altip_inside_rom.v
+FD:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/altip/altip_inside_rom.v
+L0 39
+R2
+r1
+31
+R3
+R4
+!s100 ZLkkN9:<3c8W=MKjb?z2T3
+!s85 0
+!s108 1330240556.771000
+!s107 D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/altip/altip_inside_rom.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/altip|D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/altip/altip_inside_rom.v|
+!s101 -O0
+valu
+I@=?^6GOV`22:Z4kWUo4?c1
+V8JzAMI6E4M;]8LF:a6cgg2
+R1
+Z5 w1094789172
+Z6 8D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/fz80/fz80.v
+Z7 FD:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/fz80/fz80.v
+L0 1201
+R2
+r1
+31
+Z8 !s108 1330240555.609000
+Z9 !s107 D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/fz80/fz80.v|
+Z10 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/fz80|D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/fz80/fz80.v|
+R3
+Z11 !s92 -vlog01compat -work work +incdir+D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/fz80 -O0
+!s100 f[_VHAe7`BUK7bAiRDZG;3
+!s85 0
+!s101 -O0
+vARAMB4_S4_S8
+I<::1eVS[X10T3[jnS;H<c0
+VQ2D@99?OPli8BL9SNoB3R2
+R1
+w1051851542
+8D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ip/ARAMB4_S4_S8.v
+FD:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ip/ARAMB4_S4_S8.v
+L0 37
+R2
+r1
+31
+R3
+Z12 !s92 -vlog01compat -work work +incdir+D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ip -O0
+n@a@r@a@m@b4_@s4_@s8
+!s100 lRi;z5HHmUC:E2gL0`XbJ1
+!s85 0
+!s108 1330240556.659000
+!s107 D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ip/ARAMB4_S4_S8.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ip|D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ip/ARAMB4_S4_S8.v|
+!s101 -O0
+vARAMB4_S8_S8
+IVe9Fi<Pf`GB:B9zhYW8Y<2
+VMP>1[]S`T7RAkoz9Z8P]31
+R1
+w1051851254
+8D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ip/ARAMB4_S8_S8.v
+FD:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ip/ARAMB4_S8_S8.v
+L0 37
+R2
+r1
+31
+R3
+n@a@r@a@m@b4_@s8_@s8
+R12
+!s100 8?G50WWckezadL0j>_1G=1
+!s85 0
+!s108 1330240556.559000
+!s107 D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ip/ARAMB4_S8_S8.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ip|D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ip/ARAMB4_S8_S8.v|
+!s101 -O0
+vasu
+I8Q^>b=nSUd2>8gC;?2hD?1
+V[aRb]OB3aAZ5KR?nijB0@0
+R1
+R5
+R6
+R7
+L0 1113
+R2
+r1
+31
+R8
+R9
+R10
+R3
+R11
+!s100 iXc`jhQK7g:S8HT0HDkc[0
+!s85 0
+!s101 -O0
+vcg
+IBS_8X`6KS=Ia?_N]BD`dY2
+VS]<HHkWo48Zag<mFmXnZ<2
+R1
+Z13 w1329621150
+Z14 8D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/crtc.v
+Z15 FD:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/crtc.v
+L0 319
+R2
+r1
+31
+Z16 !s108 1330240555.133000
+Z17 !s107 D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/crtc.v|
+Z18 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl|D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/crtc.v|
+R3
+Z19 !s92 -vlog01compat -work work +incdir+D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl -O0
+!s100 =P]cllFB;?aA;AYalhLOP2
+!s85 0
+!s101 -O0
+vclockgen
+IZ<@JEeRKKnNa?^LME6j1b2
+V[[K77iojE0jcfGCg^SJhV0
+R1
+Z20 w1096192819
+8D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/clockgen.v
+FD:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/clockgen.v
+L0 4
+R2
+r1
+31
+R3
+R19
+!s100 D7YS`Dg_1RfjOB4GUGB;c1
+!s85 0
+!s108 1330240555.517000
+!s107 D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/clockgen.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl|D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/clockgen.v|
+!s101 -O0
+vcolordata
+IGZ6kM;gGkAB:o:HG[7cZz0
+V5e:W730hj9;0h]IV0Hh@D0
+R1
+R13
+R14
+R15
+L0 288
+R2
+r1
+31
+R16
+R17
+R18
+R3
+R19
+!s100 9mmB5zh9LXoZeZ``PTm1n3
+!s85 0
+!s101 -O0
+vcount10
+IO2a3CGb`cS<;dDlCJJME;0
+VIjl5<WC?o_m7ojfI5<QNK3
+R1
+Z21 w1329544692
+Z22 8D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/rtc.v
+Z23 FD:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/rtc.v
+L0 115
+R2
+r1
+31
+Z24 !s108 1330240554.576000
+Z25 !s107 D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/rtc.v|
+Z26 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl|D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/rtc.v|
+R3
+R19
+!s100 AbP;dh_HZ8mWTPSi=[R3A3
+!s85 0
+!s101 -O0
+vcount101
+Ild0H1=g8T6eIP119V2D242
+Vd5K8?M<?6=]7g^>Sa[T690
+R1
+R21
+R22
+R23
+L0 99
+R2
+r1
+31
+R24
+R25
+R26
+R3
+R19
+!s100 0MQD7;d;DBj9Q[JWJ29WK0
+!s85 0
+!s101 -O0
+vcount10c
+IzXnU9[11IUF8o9ejRA7WY1
+VVh20[ifHC?SSDDT<n58331
+R1
+R21
+R22
+R23
+L0 83
+R2
+r1
+31
+R24
+R25
+R26
+R3
+R19
+!s100 UN^[3[zLODfL7n=NT=a6@0
+!s85 0
+!s101 -O0
+vcount121
+Ia43DIc`k0F0cCGNiid[<f2
+VTCL7Y@Lz`i4T9GOPVd5:T3
+R1
+R21
+R22
+R23
+L0 169
+R2
+r1
+31
+R24
+R25
+R26
+R3
+R19
+!s100 _NZPjVA1V9HCS@5o@ogIN1
+!s85 0
+!s101 -O0
+vcount3c
+IgJU`^D>GmF?ejl??Zcje10
+V0m5=8iYaZ^JACXko=XJOA3
+R1
+R21
+R22
+R23
+L0 130
+R2
+r1
+31
+R24
+R25
+R26
+R3
+R19
+!s100 mSb@HfhGzVE>zilQHB[_:2
+!s85 0
+!s101 -O0
+vcount4c
+IcQX>F<0OZQZ`[=FL[@6e_2
+VBdh:PG6aZ=X:YTP9Y1o4B1
+R1
+R21
+R22
+R23
+L0 142
+R2
+r1
+31
+R24
+R25
+R26
+R3
+R19
+!s100 n]3G:c2mOVeNQTAZ>@X_F3
+!s85 0
+!s101 -O0
+vcount6
+I?:TY`VA_gnj=89IQo63KL2
+V9z9:;fbDo>HJd@fEUiUeB2
+R1
+R21
+R22
+R23
+L0 154
+R2
+r1
+31
+R24
+R25
+R26
+R3
+R19
+!s100 >2FOZh<G3gnHoQcBMH2UV0
+!s85 0
+!s101 -O0
+vcrtc
+I1AKG[1FAo<NZS^Z>4`zD83
+V>aMUBFVRd_X1g>:H`AS6<3
+R1
+R13
+R14
+R15
+L0 6
+R2
+r1
+31
+R16
+R17
+R18
+R3
+R19
+!s100 ?C3YnK3iam?e4ZnT4BDDb2
+!s85 0
+!s101 -O0
+vfz80
+If:Xo^?[cXKOob?Do0gaCR3
+V4ceK7@daZ6nKIJ]][l0:=0
+R1
+R5
+R6
+R7
+L0 12
+R2
+r1
+31
+R8
+R9
+R10
+R3
+R11
+!s100 YQ`ie:RN?f=^XJho7HMkd1
+!s85 0
+!s101 -O0
+vkeymap
+IN>zkY:d1a:2YSGze4Z^BM3
+VOP?GhYdkR7H@kF;EgdejN3
+R1
+Z27 w1329544604
+Z28 8D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ukp.v
+Z29 FD:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ukp.v
+L0 212
+R2
+r1
+31
+Z30 !s108 1330240554.357000
+Z31 !s107 D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ukp.v|
+Z32 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl|D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ukp.v|
+R3
+R19
+!s100 _IOV[H_FQW_6G3ICPV=6Z2
+!s85 0
+!s101 -O0
+vpc8001
+I;D>2K0PE;?nJOHEd5A[ll1
+VKao_czfj>egjkfRzdJ:NW3
+R1
+w1330240509
+8D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/pc.v
+FD:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/pc.v
+L0 51
+R2
+r1
+31
+R3
+R19
+!s100 30o]j_gZM>@0WGRK`oMmb1
+!s85 0
+!s108 1330240555.015000
+!s107 D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/pc.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl|D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/pc.v|
+!s101 -O0
+vpc8001tv
+!s100 zQ]MPioElYKAELLcT;8BG3
+I8nB0Q^>I^7H;Pzkb9APoG3
+VaaGaa0aUFoi4GhN<D47H32
+R1
+w1330239327
+8D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/pc-testvench.v
+FD:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/pc-testvench.v
+L0 3
+R2
+r1
+!s85 0
+31
+!s108 1330240557.167000
+!s107 D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/pc-testvench.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl|D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/pc-testvench.v|
+!s101 -O0
+R3
+R19
+vreg_2
+ImM_WeN=K:II:ZA7mOUd1E1
+Vck3_eB1e70FD3RLeDeETA3
+R1
+R5
+R6
+R7
+L0 1368
+R2
+r1
+31
+R8
+R9
+R10
+R3
+R11
+!s100 nmXYl8Cl>a_2N_bbW_bL[3
+!s85 0
+!s101 -O0
+vreg_2s
+I_kLg_1`h]>990J_F7ckY=3
+V@HlAKMebg:<bZP`;<62TT2
+R1
+R5
+R6
+R7
+L0 1381
+R2
+r1
+31
+R8
+R9
+R10
+R3
+R11
+!s100 E;fZ>h;Ql:7OXXTen_76i0
+!s85 0
+!s101 -O0
+vreg_a
+IXHnLd<QjjIdanUVkF8ez]1
+VaV^zd[hS39P[@O5?6MZNi3
+R1
+R5
+R6
+R7
+L0 1287
+R2
+r1
+31
+R8
+R9
+R10
+R3
+R11
+!s100 e?MSMj0DLb2<DWe45A0O_1
+!s85 0
+!s101 -O0
+vreg_dual2
+IFJDGP?UA4KBAXFg0[Phzh2
+Vh]U[_^Oka2Y>RjUhGfL:V3
+R1
+R5
+R6
+R7
+L0 1350
+R2
+r1
+31
+R8
+R9
+R10
+R3
+R11
+!s100 =1>b_JY2U[k6S;<B1G^GQ0
+!s85 0
+!s101 -O0
+vreg_f
+I7?Tc2[@S4gzAaooeHDP]B3
+VQ_;iaFdE9h^z;3zF_JO3<3
+R1
+R5
+R6
+R7
+L0 1306
+R2
+r1
+31
+R8
+R9
+R10
+R3
+R11
+!s100 E[anh::S?0XmE]EGIWEVc2
+!s85 0
+!s101 -O0
+vreg_pch
+I262Wb>gL^bj5DV]QW:mN:0
+V]fSPG]VZPkZLWP^hjMOY=3
+R1
+R5
+R6
+R7
+L0 1434
+R2
+r1
+31
+R8
+R9
+R10
+R3
+R11
+!s100 MIR7TIE?3`G`:NOP]1>Yk3
+!s85 0
+!s101 -O0
+vreg_pcl
+ITh<@>oneV;z=IFdBDlIUi2
+VM>UQZd8MH`HFTGhzD`fj[2
+R1
+R5
+R6
+R7
+L0 1455
+R2
+r1
+31
+R8
+R9
+R10
+R3
+R11
+!s100 45co]:k@dCK4N?8J?e>h03
+!s85 0
+!s101 -O0
+vreg_quad3
+IAG<oUiBRaF79I1XDZSUg_0
+V4a`RhK;WoS=7W_]RbONGa2
+R1
+R5
+R6
+R7
+L0 1395
+R2
+r1
+31
+R8
+R9
+R10
+R3
+R11
+!s100 z_Dk[jYEdI[lEB@Ikagg[1
+!s85 0
+!s101 -O0
+vreg_r
+I6S3TJYb28FcLE<9e54ZTW0
+V@^dCkkn@Wk]gie:QRm[Bl3
+R1
+R5
+R6
+R7
+L0 1488
+R2
+r1
+31
+R8
+R9
+R10
+R3
+R11
+!s100 56fDDh0@c77fG[28h]kNV1
+!s85 0
+!s101 -O0
+vreg_simple
+I5X7Zn;H_S`O5NVP6HkM0^1
+VjGEeOn?>UcdW=CUW16EOz2
+R1
+R5
+R6
+R7
+L0 1325
+R2
+r1
+31
+R8
+R9
+R10
+R3
+R11
+!s100 1LNQEJAL;g]ez639DEkUD3
+!s85 0
+!s101 -O0
+vreg_simplec
+I;cLzbP_5Gn1nozoKDIR>22
+V4UnHJRa@=?7Se6j4BSJm30
+R1
+R5
+R6
+R7
+L0 1337
+R2
+r1
+31
+R8
+R9
+R10
+R3
+R11
+!s100 VRG]BDGCG6i=2S8oGidaX1
+!s85 0
+!s101 -O0
+vrtc
+IIgzMFTTDF[>XSMDQRoMQ;1
+ViYC3_mDnio]?QHU<NzF;Q1
+R1
+R21
+R22
+R23
+L0 4
+R2
+r1
+31
+R24
+R25
+R26
+R3
+R19
+!s100 F2_?_AzCbZ@bKMTS2R_B50
+!s85 0
+!s101 -O0
+vseq
+IbFI8Dcoao4_mDC]7zeeYO0
+VY6LJ`MD9@bAhG33P6:F]o1
+R1
+R5
+R6
+R7
+L0 862
+R2
+r1
+31
+R8
+R9
+R10
+R3
+R11
+!s100 9Na?Wnh1PcnJ@P`dh7Y;^1
+!s85 0
+!s101 -O0
+vukp
+I`JHgQFf]23oK@THdmiQze0
+V3V4KodOVADIn_eLTd;?Ba3
+R1
+R27
+R28
+R29
+L0 6
+R2
+r1
+31
+R30
+R31
+R32
+R3
+R19
+!s100 Q1njcMkL:aWTJ@8gX8?^71
+!s85 0
+!s101 -O0
+vukprom
+I`=89;P[T<I8GRATCkn0zI1
+V@e8AHSDF_0Ae?JnjDm_LL1
+R1
+R20
+8D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ukprom.v
+FD:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ukprom.v
+L0 1
+R2
+r1
+31
+R3
+R19
+!s100 cDAdgQR4Hb57X@]l8kVHe2
+!s85 0
+!s108 1330240554.209000
+!s107 D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ukprom.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl|D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/rtl/ukprom.v|
+!s101 -O0

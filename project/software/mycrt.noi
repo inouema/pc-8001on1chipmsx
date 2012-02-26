@@ -1,0 +1,5 @@
+DEF .__.ABS. 0x0
+DEF _main 0x0
+DEF l__CODE 0x4
+DEF s__CODE 0x200
+LOAD mycrt.ihx

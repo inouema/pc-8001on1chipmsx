@@ -1,0 +1,37 @@
+--altsyncram ADDRESS_ACLR_A="NONE" CBX_DECLARE_ALL_CONNECTED_PORTS="OFF" CLOCK_ENABLE_INPUT_A="BYPASS" CLOCK_ENABLE_OUTPUT_A="BYPASS" CYCLONEII_M4K_COMPATIBILITY="ON" DEVICE_FAMILY="Cyclone" ENABLE_RUNTIME_MOD="NO" INIT_FILE="alt_iplrom_data.hex" LOW_POWER_MODE="AUTO" NUMWORDS_A=32 OPERATION_MODE="ROM" OUTDATA_ACLR_A="NONE" OUTDATA_REG_A="CLOCK0" WIDTH_A=8 WIDTH_BYTEENA_A=1 WIDTHAD_A=5 address_a clock0 q_a CARRY_CHAIN="MANUAL" CARRY_CHAIN_LENGTH=48
+--VERSION_BEGIN 11.0 cbx_altsyncram 2011:04:27:21:07:09:SJ cbx_cycloneii 2011:04:27:21:07:09:SJ cbx_lpm_add_sub 2011:04:27:21:07:09:SJ cbx_lpm_compare 2011:04:27:21:07:09:SJ cbx_lpm_decode 2011:04:27:21:07:09:SJ cbx_lpm_mux 2011:04:27:21:07:09:SJ cbx_mgl 2011:04:27:21:08:59:SJ cbx_stratix 2011:04:27:21:07:09:SJ cbx_stratixii 2011:04:27:21:07:09:SJ cbx_stratixiii 2011:04:27:21:07:09:SJ cbx_stratixv 2011:04:27:21:07:09:SJ cbx_util_mgl 2011:04:27:21:07:09:SJ  VERSION_END
+
+
+-- Copyright (C) 1991-2011 Altera Corporation
+--  Your use of Altera Corporation's design tools, logic functions 
+--  and other software and tools, and its AMPP partner logic 
+--  functions, and any output files from any of the foregoing 
+--  (including device programming or simulation files), and any 
+--  associated documentation or information are expressly subject 
+--  to the terms and conditions of the Altera Program License 
+--  Subscription Agreement, Altera MegaCore Function License 
+--  Agreement, or other applicable license agreement, including, 
+--  without limitation, that your use is for the sole purpose of 
+--  programming logic devices manufactured by Altera and sold by 
+--  Altera or its authorized distributors.  Please refer to the 
+--  applicable agreement for further details.
+
+
+
+--synthesis_resources = 
+SUBDESIGN altsyncram_mn91
+( 
+	address_a[4..0]	:	input;
+	clock0	:	input;
+	q_a[7..0]	:	output;
+) 
+
+BEGIN 
+	ASSERT (0) 
+	REPORT "Cannot use value BYPASS of parameter CLOCK_ENABLE_INPUT_A with device family Cyclone in altsyncram megafunction"
+	SEVERITY ERROR;
+	ASSERT (0) 
+	REPORT "Cannot use value BYPASS of parameter CLOCK_ENABLE_OUTPUT_A with device family Cyclone in altsyncram megafunction"
+	SEVERITY ERROR;
+END;
+--ERROR FILE

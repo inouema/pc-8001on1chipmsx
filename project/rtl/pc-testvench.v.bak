@@ -1,0 +1,134 @@
+`timescale 1ns/1ns
+
+module pc8001tv; // test vench
+
+   reg vclk ; // vertual clock
+   reg nrst ;
+//   reg  [ 7:0]  r_z80data;
+   wire [ 7:0]  w_z80data;
+//   reg [ 7:0]   r_rom_data;
+//   wire [ 7:0]  w_rom_data;
+  
+   wire [14:0] addr;
+   wire        nrd;
+   wire        nwr;
+   wire        ncs1;
+   wire        ncs2;
+   wire        beep;
+   wire [ 7:0] w_debug;
+   wire        w_mreq;
+   wire        w_z80rd;
+//   wire [ 7:0] w_dummy = 8'hff;
+   
+
+   parameter   step = 1000;
+
+//   assign      w_z80data = (nrd == 1'b1) ?  w_dummy : w_rom_data;
+
+   // vclk
+   always begin
+      vclk = 0; #(step/2);
+      vclk = 1; #(step/2);
+   end
+
+//   always @(posedge vclk) begin
+//       r_z80data <= w_rom_data;
+//   end
+   
+   
+   pc8001 pc8001 (
+	              .I_CLK_21M(vclk),
+                  .I_nRESET(nrst),
+                  .O_A(addr),
+                  .IO_D(w_z80data),
+                  .O_nRD(nrd),
+                  .O_nWR(nwr),
+                  .O_nCS1(ncs1),
+                  .O_nCS2(ncs2),
+                  .debug(w_debug),
+                  .O_MREQ(w_mreq),
+                  .O_Z80RD(w_z80rd),
+	              .beep_out(beep)
+                  );
+
+//   test_rom test_rom (
+//                      .addr(addr[4:0]),
+//                      .oe(nrd),
+//                      .ce(ncs1),
+//                      .q(w_rom_data)
+//                      );
+   
+
+   initial begin
+      #0
+        vclk = 0;
+        nrst = 1'b0;
+
+      #(step*20)
+        nrst = 1'b1;
+
+      #(step * 100)
+        $finish;
+   end
+endmodule // pc8001
+
+
+`if 0
+module test_rom (
+                 addr,
+                 oe,
+                 ce,
+                 q
+                 );
+   
+   input  [ 4:0] addr;
+   input         oe;
+   input         ce;
+   output [ 7:0] q;
+   reg    [ 7:0] q;
+
+   // TEST ROM
+   always @ (~ce ) begin
+      if(oe == 1'b1) begin
+         q = 8'hzz;
+      end
+      else begin
+        case (addr)
+          5'h00: q = 8'hAF;
+          5'h01: q = 8'hD3;
+          5'h02: q = 8'h40;
+          5'h03: q = 8'h01;
+          5'h04: q = 8'h00;
+          5'h05: q = 8'h00;
+          5'h06: q = 8'h0B;
+          5'h07: q = 8'h79;
+          5'h08: q = 8'hB0;
+          5'h09: q = 8'h20;
+          5'h0A: q = 8'hFB;
+          5'h0B: q = 8'h3E;
+          5'h0C: q = 8'h20;
+          5'h0D: q = 8'hD3;
+          5'h0D: q = 8'h40;
+          5'h0E: q = 8'h01;
+          5'h0F: q = 8'h00;
+          5'h10: q = 8'h00;
+          5'h11: q = 8'h0B;
+          5'h12: q = 8'h79;
+          5'h13: q = 8'hB0;
+          5'h14: q = 8'h20;
+          5'h15: q = 8'hFB;
+          5'h16: q = 8'h18;
+          5'h17: q = 8'hE7;
+          5'h18: q = 8'h00;
+          5'h19: q = 8'h00;
+          5'h1A: q = 8'h00;
+          5'h1B: q = 8'h00;
+          5'h1C: q = 8'h00;
+          5'h1D: q = 8'h00;
+          5'h1E: q = 8'h00;
+          5'h1F: q = 8'h00;
+        endcase // case(addr)
+      end // else: !if(oe == 1'b1)
+   end // always @ (~ce )
+endmodule // test_rom
+`endif //  `if 0

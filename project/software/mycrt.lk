@@ -1,0 +1,9 @@
+-mjwx
+-i mycrt.ihx
+-b _CODE = 0x0200
+-b _DATA = 0x8000
+-k C:\Program Files\SDCC\bin\..\lib\z80
+-l z80
+mycrt.rel
+
+-e

@@ -1,0 +1,642 @@
+//***************************************************************************************
+// PC-8001 on the DE0 Altera CycloneIII version.
+//
+// Copyright (c) 2012 Masato INOUE
+//***************************************************************************************
+//
+// Permission is hereby granted, free of charge, to any person obtaining a 
+// copy of this software and associated documentation files (the "Software"), 
+// to deal in the Software without restriction, including without limitation 
+// the rights to use, copy, modify, merge, publish, distribute, sublicense, 
+// and/or sell copies of the Software, and to permit persons to whom the 
+// Software is furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included 
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
+// EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF 
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+// IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY 
+// CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
+// TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+// SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+/////////////////////////////////////////////////////////////////////////////
+// INCLUDE FILES
+/////////////////////////////////////////////////////////////////////////////
+//`include src/switch.v
+
+
+/////////////////////////////////////////////////////////////////////////////
+// MACRO
+/////////////////////////////////////////////////////////////////////////////
+
+////// DEBUG
+//`define ICE
+//`define TESTROM
+`define PROTECT
+
+////// USE CPU SELECTION
+`define MCPU_FZ80
+
+
+//`define USE_BOOT
+`define USE_BEEP_ON_OFF_ROM
+
+/////////////////////////////////////////////////////////////////////////////
+// PC-8001 I/O Interface
+/////////////////////////////////////////////////////////////////////////////
+module pc8001(
+	      I_CLK_21M, // Board Clock 21MHz.
+          I_nRESET,  // Board Reset. Low Active.
+
+`ifdef ICE
+	      sclk,
+	      sdata,
+`endif
+
+          vcoclk,
+          vtune,
+          usbclk,
+          clk_out,
+          usb_dp,
+          usb_dm,
+          ind,
+
+          O_A,    // ROM/RAM Address Bus.
+          IO_D,   // ROM/RAM Data Bus.
+          O_nRD,  // ROM/RAM OE.
+          O_nWR,  // RAM Write
+          O_nCS1, // ROM Chip Select.
+          O_nCS2, // RAM Chip Select.
+
+	      y_out,
+          c_out,
+
+	      beep_out,
+          motor,
+
+          debug,
+          O_nIORQ,
+			 
+		  I_SW_0,
+		  I_SW_1
+          );
+
+   output [7:0] debug;
+   output       O_nIORQ;
+   
+   
+   input I_CLK_21M;
+   input I_nRESET;
+   
+   input I_SW_0;
+   input I_SW_1;
+
+   output [14:0]  O_A;
+   inout  [ 7:0]  IO_D;
+   output        O_nRD;
+   output        O_nWR;
+   output        O_nCS1;
+   output        O_nCS2;
+
+
+`ifdef ICE
+   input sclk;
+   output sdata;
+`endif
+
+   input  vcoclk;
+   input  usbclk;
+   
+   output vtune;
+   output clk_out;
+   output ind;
+   output [3:0] y_out;
+   output [3:0] c_out;
+   inout        usb_dp;
+   inout        usb_dm;
+
+   output       beep_out;
+   output       motor;
+
+
+/////////////////////////////////////////////////////////////////////////////
+// wire & register decralation
+/////////////////////////////////////////////////////////////////////////////
+
+   wire [16:0]  w_o_address;
+   assign       O_A  = w_o_address[14:0];
+   wire [ 7:0]  w_io_data;
+   assign       IO_D = w_io_data;
+
+   wire         w_rom_n_ce;
+   assign       O_nCS1 = w_rom_n_ce;
+   wire         w_ram_n_ce;
+   assign       O_nCS2 = w_ram_n_ce;
+   
+   wire         w_romram_n_oe;
+   assign       O_nRD = w_romram_n_oe;
+   wire         w_ram_n_we;
+   assign       O_nWR = w_ram_n_we;
+
+
+   wire [15:0]  cpu_adr;
+//   wire         boot_ram_ce_n;
+//   wire         boot_ram_oe_n;
+//   wire         boot_ram_we_n;
+//   wire [16:0]  boot_adr;
+   wire [16:0]  dma_adr;
+//   wire [7:0]   boot_data;
+
+   wire [ 7:0]   cpu_data_in;
+   wire [ 7:0]   cpu_data_out;
+   wire [ 7:0]   kbd_data;
+   wire [ 7:0]   w_iplrom_do;
+ 
+   wire         cpu_reset_n;
+   wire         mreq;
+   
+   wire         iorq;
+   assign       O_nIORQ = ~iorq;
+   
+   wire         rd;
+   
+   wire         wr;
+   wire         busreq;
+   wire         busack;
+//   wire [7:0] boot_data_out;
+
+`ifdef ICE
+	reg ice_enable = 0;
+`endif
+
+	reg [ 4:0] waitcount = 0;
+	wire start, waitreq;
+
+	wire cdata;
+
+
+`ifdef TESTROM
+   wire  testrom_g;
+   wire [ 7:0] testrom_data;
+`endif
+
+   reg [ 5:0]  vrtc = 0;
+   reg        iorq0 = 0;
+   reg        rd0 = 0;
+   reg        port40h0 = 0;
+   reg        reset1 = 0;
+   reg        reset2 = 0;
+	
+	wire   w_i_sw_0;
+	assign w_i_sw_0 = I_SW_0;
+	
+	wire   w_i_sw_1;
+	assign w_i_sw_1 = I_SW_1;
+	
+	reg [ 7:0] r_sw_0_filter;
+	reg [ 7:0] r_sw_1_filter;
+
+
+// DEBUG : AAAAA  for Use Inside ROM/RAM
+   wire [ 7:0] w_inside_ram_data;
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Clock generate with ALT PLL
+/////////////////////////////////////////////////////////////////////////////
+   //wire       w_i_clk_50m;
+   assign     clk = I_CLK_21M;
+
+`ifdef AAAAA
+   always @(posedge clk) begin
+		r_sw_0_filter    <= {r_sw_0_filter[6:0], w_i_sw_0};
+   end
+	
+	always @(posedge clk) begin
+		r_sw_1_filter    <= {r_sw_1_filter[6:0], w_i_sw_1};
+   end
+
+   wire       clk; // system clock
+   wire       w_clk_4m;
+	wire       w_clk_8m;
+   wire       w_clk_25m;
+   wire       w_clk_14m;
+   wire [1:0] w_clk_sel;
+	
+	assign w_clk_sel = {r_sw_1_filter[7],r_sw_0_filter[7]};
+
+
+   pll	system_clk (
+	                .inclk0 (w_i_clk_50m ),
+	                .c0     (w_clk_4m ),    // 4MHz
+	                .c1     (w_clk_8m ), // 8MHz(for debug))
+	                .c2     (w_clk_25m),    // 25MHz (for VGA)
+	                .c3     (w_clk_14m )    // 14.318 (for NTSC)
+	                );
+
+   function f_system_clk_selector;
+      input [1:0] clk_sel;
+      input       clk_4m;
+		input       clk_8m;
+      input       clk_25m;
+      input       clk_14m;
+
+      case (clk_sel)
+        2'h0 : f_system_clk_selector = clk_4m;
+        2'h1 : f_system_clk_selector = clk_8m;
+        2'h2 : f_system_clk_selector = clk_25m;
+		  2'h3 : f_system_clk_selector = clk_14m;
+        default : f_system_clk_selector = clk_4m;
+      endcase // case(sel)
+   endfunction // f_system_clk_selector
+
+   assign   clk = f_system_clk_selector(w_clk_sel, w_clk_4m, w_clk_8m, w_clk_25m, w_clk_14m);
+`endif //  `ifdef AAAAA
+
+
+
+	assign waitreq = start | waitcount < 21;
+
+	always @(posedge clk) begin
+		if (start) waitcount <= 0;
+		else waitcount <= waitcount + 1;
+	end
+
+
+
+//
+// Reset fillter
+//
+   wire w_n_reset;
+   assign w_n_reset = I_nRESET;
+
+   always @(posedge clk) begin
+	  reset1 <= ~w_n_reset;
+	  reset2 <= reset1;
+   end
+
+// wire reset = ~cpu_reset_n | ~reset1 & reset2;
+   wire reset = ~reset1 & reset2;
+
+
+// I/O Device's
+   wire port30h = cpu_adr[7:4] == 4'h3;
+   wire port40h = cpu_adr[7:4] == 4'h4;
+   wire port80h = cpu_adr[7:4] == 4'h8;
+   wire porte0h = cpu_adr[7:3] == 5'b11100;
+   wire portefh = cpu_adr[7:0] == 8'hef;
+
+   // MEMO
+   // CPU ADDRESS
+   // 0b xxxx-xxxx-****-xxxx (16bit)
+   // **** = 0000(0x0) : keyboard
+   // **** = 0100(0x4) : RTC(?)
+   // **** = 1000(0x8) : keyboard
+   // **** = 1110(0xE) : 
+
+   wire [7:0] port00data;
+   wire [7:0] port40data;
+   wire [7:0] porte0data;
+
+   assign      port00data = ~kbd_data;
+   assign      port40data = { 2'b00, vrtc[5], cdata, 4'b1010 };
+ //  assign    porte0data = boot_data_out;
+   assign      porte0data = 8'hFF;
+
+   reg [7:0]   input_data;
+
+	function [7:0] selin;
+		input [3:0] sel;
+		input [23:0] a;
+			case (sel)
+				4'h0: selin = a[23:16]; // keyboard
+				4'h4: selin = a[15:8];  // rtc
+				4'h8: selin = a[23:16]; // keyboard
+				4'he: selin = a[7:0];   // boot
+				default: selin = 8'hff;
+			endcase
+	endfunction // selin
+
+   always @(posedge clk) 
+	 input_data <= selin(cpu_adr[7:4], { port00data, port40data, porte0data });
+
+
+//	assign cpu_data_in = iorq ? input_data :
+//`ifdef TESTROM
+//	testrom_g ? testrom_data : 
+//`endif
+//	ram_data;
+
+//
+// --- Z80 Data Input Data Selector
+//
+   wire [ 7:0]       w_memmory_data;
+   assign            w_memmory_data = (w_ram_n_ce == 1'b0) ? w_inside_ram_data : w_iplrom_do;
+
+   function [7:0] f_selector_indata;
+      input iorq;
+      input rd;
+      input [7:0] port_data;
+      input [7:0] memmory_data;
+
+      if     (iorq)       f_selector_indata = port_data;
+      else if(rd)         f_selector_indata = memmory_data;
+      else                f_selector_indata = 8'hFF;
+   endfunction // f_selector_indata
+
+`ifdef USE_BEEP_ON_OFF_ROM
+   assign   cpu_data_in = f_selector_indata(iorq, rd, input_data, w_memmory_data);
+`else
+   assign   cpu_data_in = f_selector_indata(iorq, rd, input_data, w_io_data);
+`endif
+
+
+	always @(posedge clk) begin
+		if (~iorq & iorq0 & rd0 & port40h0) vrtc <= vrtc + 1;
+		iorq0 <= iorq;
+		rd0 <= rd;
+		port40h0 <= port40h;
+`ifdef ICE
+		if (iorq & wr & portefh) ice_enable <= cpu_data_out[0];
+`endif
+	end
+
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Z80 core
+/////////////////////////////////////////////////////////////////////////////
+`ifdef MCPU_KX_Z80
+	kx_z80 kx_z80(
+		.data_in(cpu_data_in),
+		.data_out(cpu_data_out),
+		.reset_in(reset),
+		.clk(clk),
+		.intreq(1'b0),
+		.nmireq(1'b0),
+		.busreq(busreq), 
+		.mreq(mreq),
+		.iorq(iorq),
+		.rd(rd),
+		.wr(wr),
+		.busack_out(busack),
+		.adr(cpu_adr),
+		.waitreq(waitreq),
+`ifdef ICE
+		.ice_enable(ice_enable),
+		.sclk(sclk),
+		.sdata(sdata),
+`endif // `ifdef ICE
+		.start(start)
+	);
+`endif //  `ifdef MCPU_KX_Z80
+
+
+//----------- FZ80 -----------
+`ifdef MCPU_FZ80
+   fz80 Z80(
+             .data_in(cpu_data_in),
+             //.data_in(w_iplrom_do),
+             .reset_in(reset),
+             .clk(clk),
+             .adr(cpu_adr),
+             .intreq(1'b0),
+             .nmireq(1'b0),
+             .busreq(busreq),
+             .start(start),
+             .mreq(mreq),
+             .iorq(iorq),
+             .rd(rd),
+             .wr(wr),
+             .data_out(cpu_data_out),
+             .busack_out(busack),
+             .intack_out(),
+             .mr(),
+             .m1(m1),
+             //  .halt(halt),
+             .radr(),
+             .nmiack_out(),
+             .waitreq(waitreq)
+             );
+`endif
+
+
+
+//----------- TV80 -----------
+`ifdef MCPU_TV80
+
+wire [15:0] ZA;
+wire [7:0] ZDO,ZDI;
+wire ZMREQ_n,ZIORQ_n,ZM1_n,ZRD_n,ZWR_n, ZRFSH_n;
+wire ZCLK, ZINT_n, ZRESET_n, ZWAIT_n;
+tv80c Z80(
+  .reset_n(ZRESET_n),
+  .clk(ZCLK),
+  .A(ZA), .do(ZDO), .di(ZDI),
+  .m1_n(ZM1_n), .mreq_n(ZMREQ_n), .iorq_n(ZIORQ_n), 
+  .rd_n(ZRD_n), .wr_n(ZWR_n),
+  .wait_n(ZWAIT_n), .rfsh_n(ZRFSH_n),
+  .int_n(ZINT_n), .nmi_n(1'b1),.busrq_n(1'b1),
+  .halt_n(), .busak_n()
+);
+`endif
+
+
+/////////////////////////////////////////////////////////////////////////////
+// IPL ROM (BEEP ON/OFF program)
+/////////////////////////////////////////////////////////////////////////////
+`ifdef USE_BEEP_ON_OFF_ROM
+
+altip_inside_rom beeprom (
+	.address ( cpu_adr[14:0] ),
+    .clken   ( ~w_rom_n_ce ),
+	.clock   ( clk ),
+	.q       ( w_iplrom_do )
+	);
+
+`endif
+
+
+/////////////////////////////////////////////////////////////////////////////
+// INSIDE RAM 32KByte
+/////////////////////////////////////////////////////////////////////////////
+   
+altip_inside_ram_32KB  inside_ram(
+	.address ( cpu_adr [14:0]),
+	.clken   ( ~w_ram_n_ce),
+	.clock   ( clk ),
+	.data    ( w_io_data ),
+	.wren    ( ~w_ram_n_we ),
+	.q       ( w_inside_ram_data )
+);
+
+
+   
+   
+/////////////////////////////////////////////////////////////////////////////
+// BOOT
+/////////////////////////////////////////////////////////////////////////////
+`ifdef USE_BOOT   
+   boot boot(
+			 .clk(clk), 
+			 .ata_reset_n(ata_reset_n),
+			 .ata_cs_n(ata_cs_n),
+			 .ata_iord_n(ata_iord_n),
+			 .ata_iowr_n(ata_iowr_n),
+			 .ata_adr(ata_adr),
+			 .ata_data(ata_data),
+			 .ram_ce_n(boot_ram_ce_n), 
+			 .ram_oe_n(boot_ram_oe_n),
+			 .ram_we_n(boot_ram_we_n), 
+			 .ram_adr(boot_adr),
+			 .ram_data(boot_data),
+			 .cpu_cs(porte0h),
+			 .cpu_adr(cpu_adr[2:0]), 
+			 .cpu_iord(iorq & rd),
+			 .cpu_iowr(iorq & wr),
+			 .data_in(cpu_data_out),
+			 .data_out(boot_data_out),
+			 .cpu_reset_n(cpu_reset_n)
+			 );
+`endif //  `ifdef USE_BOOT
+
+
+
+/////////////////////////////////////////////////////////////////////////////
+// CRTC
+/////////////////////////////////////////////////////////////////////////////
+   crtc crtc(
+             .clk        (clk),
+             .y_out      (y_out),
+             .c_out      (c_out),
+             .port30h_we (iorq & wr & start & cpu_adr[7:4] == 4'h3),
+		     .crtc_we    (iorq & wr & start & cpu_adr[7:4] == 4'h5),
+		     .adr        (cpu_adr[0]),
+		     .data       (cpu_data_out),
+		     .busreq     (busreq),
+             .busack     (busack),
+		     .ram_adr    (dma_adr),
+             .ram_data   (w_io_data)
+             );
+
+`ifdef TESTROM
+	assign testrom_g = cpu_adr[15:11] == 5'b01100; // 6000h-67ffh
+	testrom testrom(clk, cpu_adr[10:0], testrom_data);
+`endif
+
+`ifdef PROTECT
+	wire narrow_wr = wr & ~start & (cpu_adr[15] | cpu_adr[14] & cpu_adr[13]);
+`else
+//	wire narrow_wr = wr & ~start;
+//   	wire narrow_wr = wr & ;
+`endif
+
+
+/////////////////////////////////////////////////////////////////////////////
+// RAM
+/////////////////////////////////////////////////////////////////////////////
+//   function [16:0] f_selector_address_17bit;
+//      input busack;
+//      input [16:0] dma_adr;
+//      input [16:0] cpu_adr;
+//	  if (busack)  f_selector_address_17bit = dma_adr;
+//	  else         f_selector_address_17bit = cpu_adr;
+//   endfunction // f_selector_address_17bit
+//   assign w_o_address  = sel17(busack, dma_adr, { 1'b0, cpu_adr });
+   assign        w_o_address   = busack ? dma_adr : { 1'b0, cpu_adr };
+   assign        w_ram_n_ce    = busack ? 1'b0    : cpu_adr[15] ? ~mreq : 1'b1;
+   assign        w_romram_n_oe = busack ? 1'b0    : (~mreq | ~rd);
+   assign        w_ram_n_we    = busack ? 1'b1    : (~mreq | ~wr);
+
+
+
+/////////////////////////////////////////////////////////////////////////////
+// ROM
+/////////////////////////////////////////////////////////////////////////////
+
+   assign        w_rom_n_ce = cpu_adr[15];
+   assign        w_io_data =  (wr & ~busack) ? cpu_data_out : 8'hzz;
+//   assign        w_io_data =  (wr & ~busack) ? cpu_data_out : 8'hzz;
+
+
+//   function [7:0] f_selector_data_8bit;
+//      input write;
+//      input [7:0] data;
+//	  if  (write) sel8 = data;
+//	  else        sel8 = 8'hZZ;
+//   endfunction // f_selector_data_8bit
+//   assign        w_io_data = sel8(wr & ~busack, cpu_data_out);
+
+
+/////////////////////////////////////////////////////////////////////////////
+// UKP
+/////////////////////////////////////////////////////////////////////////////
+
+	wire [3:0] kbd_adr;
+	assign kbd_adr[0] = cpu_adr[0] | port80h;
+	assign kbd_adr[1] = cpu_adr[1] | port80h;
+	assign kbd_adr[2] = cpu_adr[2] | port80h;
+	assign kbd_adr[3] = cpu_adr[3] | port80h;
+	ukp ukp(.clk(clk), .vcoclk(vcoclk), .vtune(vtune), .usbclk(usbclk),
+	.clk_out(clk_out), .usb_dm(usb_dm), .usb_dp(usb_dp), .record_n(ind),
+	.kbd_adr(kbd_adr[3:0]), .kbd_data(kbd_data));
+	//
+	// RTC
+	//
+	reg [3:0] cin;
+	reg cstb, cclk;
+	always @(posedge clk) begin
+		if (iorq & wr) begin
+			if (cpu_adr[7:4] == 4'h1) cin <= cpu_data_out[3:0];
+			if (cpu_adr[7:4] == 4'h4) begin
+				cstb <= cpu_data_out[1];
+				cclk <= cpu_data_out[2];
+			end
+		end
+	end
+	rtc rtc(.clk(clk), .cstb(cstb), .cclk(cclk), .cin(cin), .cdata(cdata), .ind());
+
+
+/////////////////////////////////////////////////////////////////////////////
+// BEEP
+/////////////////////////////////////////////////////////////////////////////
+   reg [11:0] beep_cnt;
+   reg        beep_osc;
+   reg        beep_gate;
+   wire       beep_cy = beep_cnt == 2499;
+
+	always @(posedge usbclk) begin
+		beep_cnt <= beep_cy ? 0 : beep_cnt + 1;
+		if (beep_cy) beep_osc <= ~beep_osc;
+	end
+
+	always @(posedge clk) begin
+//		if (iorq & wr & port40h) beep_gate <= cpu_data_out[5];
+		if (iorq & wr & port40h) beep_gate <= cpu_data_out[0];
+	end
+
+// AAAAA: debug
+//	assign beep_out = beep_gate & beep_osc;
+   assign beep_out = beep_gate;
+
+
+/////////////////////////////////////////////////////////////////////////////
+// MOTOR
+/////////////////////////////////////////////////////////////////////////////
+	reg motor = 0;
+
+	always @(posedge clk) begin
+		if (iorq & wr & port30h) motor <= cpu_data_out[3];
+	end
+
+endmodule // module pc
+
+
+
+/////////////////////////////////////////////////////////////////////////////
+// E.O.F
+/////////////////////////////////////////////////////////////////////////////

@@ -43,7 +43,7 @@
 
 
 //`define USE_BOOT
-`define USE_BEEP_ON_OFF_ROM
+//`define USE_BEEP_ON_OFF_ROM
 
 /////////////////////////////////////////////////////////////////////////////
 // PC-8001 I/O Interface
@@ -51,18 +51,16 @@
 module pc8001(
 	      I_CLK_21M, // Board Clock 21MHz.
           I_nRESET,  // Board Reset. Low Active.
+          I_CLK_EXT, // External Clock.
 
 `ifdef ICE
 	      sclk,
 	      sdata,
 `endif
-
-          vcoclk,
           vtune,
-          usbclk,
           clk_out,
-          usb_dp,
-          usb_dm,
+          IO_USB_DP,
+          IO_USB_DM,
           ind,
 
           O_A,    // ROM/RAM Address Bus.
@@ -79,18 +77,16 @@ module pc8001(
           motor,
 
           debug,
-          O_nIORQ,
 			 
 		  I_SW_0,
 		  I_SW_1
           );
 
    output [7:0] debug;
-   output       O_nIORQ;
-   
    
    input I_CLK_21M;
    input I_nRESET;
+   input I_CLK_EXT;
    
    input I_SW_0;
    input I_SW_1;
@@ -107,17 +103,15 @@ module pc8001(
    input sclk;
    output sdata;
 `endif
-
-   input  vcoclk;
-   input  usbclk;
    
    output vtune;
    output clk_out;
    output ind;
    output [3:0] y_out;
    output [3:0] c_out;
-   inout        usb_dp;
-   inout        usb_dm;
+   
+   inout        IO_USB_DP;
+   inout        IO_USB_DM;
 
    output       beep_out;
    output       motor;
@@ -129,8 +123,7 @@ module pc8001(
 
    wire [16:0]  w_o_address;
    assign       O_A  = w_o_address[14:0];
-   wire [ 7:0]  w_io_data;
-   assign       IO_D = w_io_data;
+ //  wire [ 7:0]  w_io_data;
 
    wire         w_rom_n_ce;
    assign       O_nCS1 = w_rom_n_ce;
@@ -160,10 +153,7 @@ module pc8001(
    wire         mreq;
    
    wire         iorq;
-   assign       O_nIORQ = ~iorq;
-   
    wire         rd;
-   
    wire         wr;
    wire         busreq;
    wire         busack;
@@ -173,7 +163,9 @@ module pc8001(
 	reg ice_enable = 0;
 `endif
 
-	reg [ 4:0] waitcount = 0;
+//	reg [ 4:0] waitcount = 0;
+   reg [ 5:0]  waitcount = 0;
+   
 	wire start, waitreq;
 
 	wire cdata;
@@ -208,54 +200,32 @@ module pc8001(
 /////////////////////////////////////////////////////////////////////////////
 // Clock generate with ALT PLL
 /////////////////////////////////////////////////////////////////////////////
-   //wire       w_i_clk_50m;
-   assign     clk = I_CLK_21M;
 
-`ifdef AAAAA
-   always @(posedge clk) begin
-		r_sw_0_filter    <= {r_sw_0_filter[6:0], w_i_sw_0};
+   wire        w_clk_28m; // dotclk 14.3MHz x 2
+   wire        w_clk_48m; //
+   wire        w_clk_12m; // ukp clock
+   wire        clk;
+   reg         r_clk;
+   reg [1:0]   r_clk_12m;  // usb clock
+   
+   pll0	system_clk (
+	.inclk0 ( I_CLK_21M ),
+	.c0 (w_clk_28m),
+    .c1 (w_clk_48m),
+	.locked ()
+	);
+
+   // 14.3MHz Video Clock
+   always @(posedge w_clk_28m) begin
+   	  r_clk <= ~r_clk;
    end
-	
-	always @(posedge clk) begin
-		r_sw_1_filter    <= {r_sw_1_filter[6:0], w_i_sw_1};
+   assign clk = r_clk;
+
+   // 12MHz ukp clk (48MHz/4)
+   always @(posedge w_clk_48m) begin
+      r_clk_12m <= r_clk_12m + 2'b01;
    end
-
-   wire       clk; // system clock
-   wire       w_clk_4m;
-	wire       w_clk_8m;
-   wire       w_clk_25m;
-   wire       w_clk_14m;
-   wire [1:0] w_clk_sel;
-	
-	assign w_clk_sel = {r_sw_1_filter[7],r_sw_0_filter[7]};
-
-
-   pll	system_clk (
-	                .inclk0 (w_i_clk_50m ),
-	                .c0     (w_clk_4m ),    // 4MHz
-	                .c1     (w_clk_8m ), // 8MHz(for debug))
-	                .c2     (w_clk_25m),    // 25MHz (for VGA)
-	                .c3     (w_clk_14m )    // 14.318 (for NTSC)
-	                );
-
-   function f_system_clk_selector;
-      input [1:0] clk_sel;
-      input       clk_4m;
-		input       clk_8m;
-      input       clk_25m;
-      input       clk_14m;
-
-      case (clk_sel)
-        2'h0 : f_system_clk_selector = clk_4m;
-        2'h1 : f_system_clk_selector = clk_8m;
-        2'h2 : f_system_clk_selector = clk_25m;
-		  2'h3 : f_system_clk_selector = clk_14m;
-        default : f_system_clk_selector = clk_4m;
-      endcase // case(sel)
-   endfunction // f_system_clk_selector
-
-   assign   clk = f_system_clk_selector(w_clk_sel, w_clk_4m, w_clk_8m, w_clk_25m, w_clk_14m);
-`endif //  `ifdef AAAAA
+   assign w_clk_12m = r_clk_12m[1];
 
 
 
@@ -351,7 +321,7 @@ module pc8001(
 `ifdef USE_BEEP_ON_OFF_ROM
    assign   cpu_data_in = f_selector_indata(iorq, rd, input_data, w_memmory_data);
 `else
-   assign   cpu_data_in = f_selector_indata(iorq, rd, input_data, w_io_data);
+   assign   cpu_data_in = f_selector_indata(iorq, rd, input_data, IO_D);
 `endif
 
 
@@ -464,7 +434,7 @@ altip_inside_rom beeprom (
 /////////////////////////////////////////////////////////////////////////////
 // INSIDE RAM 32KByte
 /////////////////////////////////////////////////////////////////////////////
-   
+`ifdef USE_BEEP_ON_OFF_ROM
 altip_inside_ram_32KB  inside_ram(
 	.address ( cpu_adr [14:0]),
 	.clken   ( ~w_ram_n_ce),
@@ -473,7 +443,7 @@ altip_inside_ram_32KB  inside_ram(
 	.wren    ( ~w_ram_n_we ),
 	.q       ( w_inside_ram_data )
 );
-
+`endif
 
    
    
@@ -520,7 +490,7 @@ altip_inside_ram_32KB  inside_ram(
 		     .busreq     (busreq),
              .busack     (busack),
 		     .ram_adr    (dma_adr),
-             .ram_data   (w_io_data)
+             .ram_data   (IO_D)
              );
 
 `ifdef TESTROM
@@ -547,7 +517,8 @@ altip_inside_ram_32KB  inside_ram(
 //	  else         f_selector_address_17bit = cpu_adr;
 //   endfunction // f_selector_address_17bit
 //   assign w_o_address  = sel17(busack, dma_adr, { 1'b0, cpu_adr });
-   assign        w_o_address   = busack ? dma_adr : { 1'b0, cpu_adr };
+   assign        w_o_address   = busack ? dma_adr[14:0] : cpu_adr[14:0];
+  // assign        w_o_address   = busack ? dma_adr : cpu_adr[14:0];
    assign        w_ram_n_ce    = busack ? 1'b0    : cpu_adr[15] ? ~mreq : 1'b1;
    assign        w_romram_n_oe = busack ? 1'b0    : (~mreq | ~rd);
    assign        w_ram_n_we    = busack ? 1'b1    : (~mreq | ~wr);
@@ -557,10 +528,9 @@ altip_inside_ram_32KB  inside_ram(
 /////////////////////////////////////////////////////////////////////////////
 // ROM
 /////////////////////////////////////////////////////////////////////////////
-
-   assign        w_rom_n_ce = cpu_adr[15];
-   assign        w_io_data =  (wr & ~busack) ? cpu_data_out : 8'hzz;
-//   assign        w_io_data =  (wr & ~busack) ? cpu_data_out : 8'hzz;
+   assign        w_rom_n_ce = busack ? 1'b1 : cpu_adr[15];
+// assign        w_io_data =  (wr & ~busack) ? cpu_data_out : 8'hzz;
+   assign        IO_D =       (wr & ~busack) ? cpu_data_out : 8'hzz;
 
 
 //   function [7:0] f_selector_data_8bit;
@@ -581,8 +551,8 @@ altip_inside_ram_32KB  inside_ram(
 	assign kbd_adr[1] = cpu_adr[1] | port80h;
 	assign kbd_adr[2] = cpu_adr[2] | port80h;
 	assign kbd_adr[3] = cpu_adr[3] | port80h;
-	ukp ukp(.clk(clk), .vcoclk(vcoclk), .vtune(vtune), .usbclk(usbclk),
-	.clk_out(clk_out), .usb_dm(usb_dm), .usb_dp(usb_dp), .record_n(ind),
+	ukp ukp(.clk(clk), .vcoclk(w_clk_48m), .vtune(vtune), .usbclk(w_clk_12m),
+	.clk_out(clk_out), .usb_dm(IO_USB_DM), .usb_dp(IO_USB_DP), .record_n(ind),
 	.kbd_adr(kbd_adr[3:0]), .kbd_data(kbd_data));
 	//
 	// RTC
@@ -609,7 +579,7 @@ altip_inside_ram_32KB  inside_ram(
    reg        beep_gate;
    wire       beep_cy = beep_cnt == 2499;
 
-	always @(posedge usbclk) begin
+	always @(posedge clk) begin
 		beep_cnt <= beep_cy ? 0 : beep_cnt + 1;
 		if (beep_cy) beep_osc <= ~beep_osc;
 	end

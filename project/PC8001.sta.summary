@@ -2,64 +2,8 @@
 TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Setup 'I_CLK_21M'
-Slack : -33.962
-TNS   : -9892.487
-
-Type  : Setup 'usbclk'
-Slack : -9.195
-TNS   : -613.306
-
-Type  : Setup 'vcoclk'
-Slack : -2.195
-TNS   : -14.441
-
-Type  : Hold 'I_CLK_21M'
-Slack : -1.185
-TNS   : -1.185
-
-Type  : Hold 'vcoclk'
-Slack : 1.031
+Type  : Minimum Pulse Width 'altera_reserved_tck'
+Slack : 97.417
 TNS   : 0.000
-
-Type  : Hold 'usbclk'
-Slack : 1.052
-TNS   : 0.000
-
-Type  : Recovery 'ukp:ukp|clockgen:clockgen|carry_a'
-Slack : -6.659
-TNS   : -6.659
-
-Type  : Recovery 'ukp:ukp|clockgen:clockgen|carry_b'
-Slack : -5.393
-TNS   : -5.393
-
-Type  : Removal 'ukp:ukp|clockgen:clockgen|carry_b'
-Slack : 4.860
-TNS   : 0.000
-
-Type  : Removal 'ukp:ukp|clockgen:clockgen|carry_a'
-Slack : 6.126
-TNS   : 0.000
-
-Type  : Minimum Pulse Width 'I_CLK_21M'
-Slack : -1.583
-TNS   : -1683.351
-
-Type  : Minimum Pulse Width 'usbclk'
-Slack : -1.583
-TNS   : -267.819
-
-Type  : Minimum Pulse Width 'vcoclk'
-Slack : -1.583
-TNS   : -25.307
-
-Type  : Minimum Pulse Width 'ukp:ukp|clockgen:clockgen|carry_a'
-Slack : -1.318
-TNS   : -2.636
-
-Type  : Minimum Pulse Width 'ukp:ukp|clockgen:clockgen|carry_b'
-Slack : -1.318
-TNS   : -2.636
 
 ------------------------------------------------------------

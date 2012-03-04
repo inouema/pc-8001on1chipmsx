@@ -1,5 +1,5 @@
 EDA Netlist Writer report for PC8001
-Sat Feb 25 23:06:16 2012
+Sat Mar 03 21:51:42 2012
 Quartus II Version 11.0 Build 157 04/27/2011 SJ Web Edition
 
 
@@ -36,7 +36,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Sat Feb 25 23:06:16 2012 ;
+; EDA Netlist Writer Status ; Successful - Sat Mar 03 21:51:42 2012 ;
 ; Revision Name             ; PC8001                                ;
 ; Top-level Entity Name     ; pc8001                                ;
 ; Family                    ; Cyclone                               ;
@@ -66,14 +66,14 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------------------+---------------------------+
 
 
-+---------------------------------------------------------------------------------------------+
-; Simulation Generated Files                                                                  ;
-+---------------------------------------------------------------------------------------------+
-; Generated Files                                                                             ;
-+---------------------------------------------------------------------------------------------+
-; D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/simulation/modelsim/PC8001.vo    ;
-; D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/simulation/modelsim/PC8001_v.sdo ;
-+---------------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------+
+; Simulation Generated Files                                                          ;
++-------------------------------------------------------------------------------------+
+; Generated Files                                                                     ;
++-------------------------------------------------------------------------------------+
+; D:/home/inouema/work/git/pc-8001on1chipmsx/project/simulation/modelsim/PC8001.vo    ;
+; D:/home/inouema/work/git/pc-8001on1chipmsx/project/simulation/modelsim/PC8001_v.sdo ;
++-------------------------------------------------------------------------------------+
 
 
 +-----------------------------+
@@ -82,14 +82,14 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II EDA Netlist Writer
     Info: Version 11.0 Build 157 04/27/2011 SJ Web Edition
-    Info: Processing started: Sat Feb 25 23:06:15 2012
+    Info: Processing started: Sat Mar 03 21:51:41 2012
 Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off PC8001 -c PC8001
 Info: Generated simulation netlist will be non-hierarchical because the design has SignalTap II partitions, termination control logic and/or a design partition that contains bidirectional ports
-Info: Generated files "PC8001.vo" and "PC8001_v.sdo" in directory "D:/home/inouema/work/PC-8001/development/pc-8001on1chipmsx/simulation/modelsim/" for EDA simulation tool
+Info: Generated files "PC8001.vo" and "PC8001_v.sdo" in directory "D:/home/inouema/work/git/pc-8001on1chipmsx/project/simulation/modelsim/" for EDA simulation tool
 Info: Quartus II EDA Netlist Writer was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 242 megabytes
-    Info: Processing ended: Sat Feb 25 23:06:16 2012
+    Info: Peak virtual memory: 247 megabytes
+    Info: Processing ended: Sat Mar 03 21:51:42 2012
     Info: Elapsed time: 00:00:01
-    Info: Total CPU time (on all processors): 00:00:01
+    Info: Total CPU time (on all processors): 00:00:02
 
 

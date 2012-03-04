@@ -1,11 +1,16 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="PC8001">
-		<CBX_INST_ENTRY INSTANCE_NAME="|pc8001|altip_inside_ram_32KB:inside_ram|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_16b1.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|pc8001|altip_inside_rom:beeprom|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_bq31.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|pc8001|crtc:crtc|ARAMB4_S8_S8:rowbuf|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_hh52.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|pc8001|crtc:crtc|cg:cg|altsyncram:Ram0_rtl_0" CBX_FILE_NAME="altsyncram_ph51.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|pc8001|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|altsyncram:\stp_non_zero_ram_gen:stp_buffer_ram" CBX_FILE_NAME="altsyncram_fl14.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|pc8001|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|LPM_COUNTER:status_advance_pointer_counter" CBX_FILE_NAME="cntr_84i.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|pc8001|ukp:ukp|ARAMB4_S4_S8:keyboard|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_4k52.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|pc8001|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|altdpram:\stp_non_zero_ram_gen:attribute_mem_gen:attribute_mem|lpm_mux:mux" CBX_FILE_NAME="mux_lgc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|pc8001|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|LPM_COUNTER:\adv_point_3_and_more:advance_pointer_counter" CBX_FILE_NAME="cntr_l4i.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|pc8001|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|LPM_COUNTER:read_pointer_counter" CBX_FILE_NAME="cntr_4ti.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|pc8001|ukp:ukp|ukprom:ukprom|altsyncram:WideOr7_rtl_0" CBX_FILE_NAME="altsyncram_qku.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|pc8001|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|altdpram:\stp_non_zero_ram_gen:attribute_mem_gen:attribute_mem|lpm_decode:wdecoder" CBX_FILE_NAME="decode_9jf.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|pc8001|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|LPM_COUNTER:status_read_pointer_counter" CBX_FILE_NAME="cntr_umi.tdf"/>
 	</PROJECT>
 </LOG_ROOT>

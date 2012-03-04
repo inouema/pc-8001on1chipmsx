@@ -1,5 +1,5 @@
 Flow report for PC8001
-Sun Feb 26 16:15:39 2012
+Sat Mar 03 21:51:42 2012
 Quartus II Version 11.0 Build 157 04/27/2011 SJ Web Edition
 
 
@@ -38,18 +38,18 @@ applicable agreement for further details.
 +------------------------------------------------------------------+
 ; Flow Summary                                                     ;
 +-----------------------+------------------------------------------+
-; Flow Status           ; Successful - Sun Feb 26 16:15:39 2012    ;
+; Flow Status           ; Successful - Sat Mar 03 21:51:42 2012    ;
 ; Quartus II Version    ; 11.0 Build 157 04/27/2011 SJ Web Edition ;
 ; Revision Name         ; PC8001                                   ;
 ; Top-level Entity Name ; pc8001                                   ;
 ; Family                ; Cyclone                                  ;
 ; Device                ; EP1C12Q240C8                             ;
 ; Timing Models         ; Final                                    ;
-; Total logic elements  ; 2,328                                    ;
-; Total pins            ; 57                                       ;
+; Total logic elements  ; 3,328 / 12,060 ( 28 % )                  ;
+; Total pins            ; 55 / 173 ( 32 % )                        ;
 ; Total virtual pins    ; 0                                        ;
-; Total memory bits     ; 546,048                                  ;
-; Total PLLs            ; 0                                        ;
+; Total memory bits     ; 89,344 / 239,616 ( 37 % )                ;
+; Total PLLs            ; 1 / 2 ( 50 % )                           ;
 +-----------------------+------------------------------------------+
 
 
@@ -58,64 +58,106 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 02/26/2012 16:15:25 ;
+; Start date & time ; 03/03/2012 21:51:06 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; PC8001              ;
 +-------------------+---------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                                                                                     ;
-+------------------------------------------------+--------------------------------------------------------------------------------------+---------------+-------------+----------------+
-; Assignment Name                                ; Value                                                                                ; Default Value ; Entity Name ; Section Id     ;
-+------------------------------------------------+--------------------------------------------------------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID                          ; 157395766526.133024052506556                                                         ; --            ; --          ; --             ;
-; EDA_DESIGN_INSTANCE_NAME                       ; NA                                                                                   ; --            ; --          ; pc8001tv       ;
-; EDA_NATIVELINK_SIMULATION_TEST_BENCH           ; pc8001tv                                                                             ; --            ; --          ; eda_simulation ;
-; EDA_OUTPUT_DATA_FORMAT                         ; Verilog Hdl                                                                          ; --            ; --          ; eda_simulation ;
-; EDA_SIMULATION_TOOL                            ; ModelSim-Altera (Verilog)                                                            ; <None>        ; --          ; --             ;
-; EDA_TEST_BENCH_ENABLE_STATUS                   ; TEST_BENCH_MODE                                                                      ; --            ; --          ; eda_simulation ;
-; EDA_TEST_BENCH_FILE                            ; rtl/pc-testvench.v                                                                   ; --            ; --          ; pc8001tv       ;
-; EDA_TEST_BENCH_MODULE_NAME                     ; pc8001tv                                                                             ; --            ; --          ; pc8001tv       ;
-; EDA_TEST_BENCH_NAME                            ; pc8001tv                                                                             ; --            ; --          ; eda_simulation ;
-; EDA_TIME_SCALE                                 ; 1 ps                                                                                 ; --            ; --          ; eda_simulation ;
-; EDA_USER_COMPILED_SIMULATION_LIBRARY_DIRECTORY ; D:\home\inouema\work\PC-8001\development\pc-8001on1chipmsx\rtl\modelsim_compiled_lib ; --            ; --          ; eda_simulation ;
-; IP_TOOL_NAME                                   ; ROM: 1-PORT                                                                          ; --            ; --          ; --             ;
-; IP_TOOL_NAME                                   ; RAM: 1-PORT                                                                          ; --            ; --          ; --             ;
-; IP_TOOL_VERSION                                ; 11.0                                                                                 ; --            ; --          ; --             ;
-; IP_TOOL_VERSION                                ; 11.0                                                                                 ; --            ; --          ; --             ;
-; MISC_FILE                                      ; rtl/altip/altip_inside_rom_inst.v                                                    ; --            ; --          ; --             ;
-; MISC_FILE                                      ; rtl/altip/altip_inside_rom_bb.v                                                      ; --            ; --          ; --             ;
-; MISC_FILE                                      ; rtl/altip/altip_inside_ram_32KB_bb.v                                                 ; --            ; --          ; --             ;
-; PARTITION_COLOR                                ; 16764057                                                                             ; --            ; pc8001      ; Top            ;
-; PARTITION_FITTER_PRESERVATION_LEVEL            ; PLACEMENT_AND_ROUTING                                                                ; --            ; pc8001      ; Top            ;
-; PARTITION_NETLIST_TYPE                         ; SOURCE                                                                               ; --            ; pc8001      ; Top            ;
-+------------------------------------------------+--------------------------------------------------------------------------------------+---------------+-------------+----------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                                                                                                                                                                                                                                    ;
++------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+-------------+------------------+
+; Assignment Name                                ; Value                                                                                                                                                                                                                                             ; Default Value ; Entity Name ; Section Id       ;
++------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+-------------+------------------+
+; COMPILER_SIGNATURE_ID                          ; 157395766526.133077906607320                                                                                                                                                                                                                      ; --            ; --          ; --               ;
+; EDA_DESIGN_INSTANCE_NAME                       ; NA                                                                                                                                                                                                                                                ; --            ; --          ; pc8001tv         ;
+; EDA_NATIVELINK_SIMULATION_TEST_BENCH           ; pc8001tv                                                                                                                                                                                                                                          ; --            ; --          ; eda_simulation   ;
+; EDA_OUTPUT_DATA_FORMAT                         ; Verilog Hdl                                                                                                                                                                                                                                       ; --            ; --          ; eda_simulation   ;
+; EDA_SIMULATION_TOOL                            ; ModelSim-Altera (Verilog)                                                                                                                                                                                                                         ; <None>        ; --          ; --               ;
+; EDA_TEST_BENCH_ENABLE_STATUS                   ; TEST_BENCH_MODE                                                                                                                                                                                                                                   ; --            ; --          ; eda_simulation   ;
+; EDA_TEST_BENCH_FILE                            ; rtl/pc-testvench.v                                                                                                                                                                                                                                ; --            ; --          ; pc8001tv         ;
+; EDA_TEST_BENCH_MODULE_NAME                     ; pc8001tv                                                                                                                                                                                                                                          ; --            ; --          ; pc8001tv         ;
+; EDA_TEST_BENCH_NAME                            ; pc8001tv                                                                                                                                                                                                                                          ; --            ; --          ; eda_simulation   ;
+; EDA_TIME_SCALE                                 ; 1 ps                                                                                                                                                                                                                                              ; --            ; --          ; eda_simulation   ;
+; EDA_USER_COMPILED_SIMULATION_LIBRARY_DIRECTORY ; D:\home\inouema\work\PC-8001\development\pc-8001on1chipmsx\rtl\modelsim_compiled_lib                                                                                                                                                              ; --            ; --          ; eda_simulation   ;
+; ENABLE_SIGNALTAP                               ; On                                                                                                                                                                                                                                                ; --            ; --          ; --               ;
+; IP_TOOL_NAME                                   ; ROM: 1-PORT                                                                                                                                                                                                                                       ; --            ; --          ; --               ;
+; IP_TOOL_NAME                                   ; RAM: 1-PORT                                                                                                                                                                                                                                       ; --            ; --          ; --               ;
+; IP_TOOL_NAME                                   ; ALTPLL                                                                                                                                                                                                                                            ; --            ; --          ; --               ;
+; IP_TOOL_VERSION                                ; 11.0                                                                                                                                                                                                                                              ; --            ; --          ; --               ;
+; IP_TOOL_VERSION                                ; 11.0                                                                                                                                                                                                                                              ; --            ; --          ; --               ;
+; IP_TOOL_VERSION                                ; 11.0                                                                                                                                                                                                                                              ; --            ; --          ; --               ;
+; MISC_FILE                                      ; rtl/altip/altip_inside_rom_inst.v                                                                                                                                                                                                                 ; --            ; --          ; --               ;
+; MISC_FILE                                      ; rtl/altip/altip_inside_rom_bb.v                                                                                                                                                                                                                   ; --            ; --          ; --               ;
+; MISC_FILE                                      ; rtl/altip/altip_inside_ram_32KB_bb.v                                                                                                                                                                                                              ; --            ; --          ; --               ;
+; MISC_FILE                                      ; rtl/altip/pll0_inst.v                                                                                                                                                                                                                             ; --            ; --          ; --               ;
+; MISC_FILE                                      ; rtl/altip/pll0_bb.v                                                                                                                                                                                                                               ; --            ; --          ; --               ;
+; MISC_FILE                                      ; rtl/altip/pll0.ppf                                                                                                                                                                                                                                ; --            ; --          ; --               ;
+; PARTITION_COLOR                                ; 16764057                                                                                                                                                                                                                                          ; --            ; pc8001      ; Top              ;
+; PARTITION_FITTER_PRESERVATION_LEVEL            ; PLACEMENT_AND_ROUTING                                                                                                                                                                                                                             ; --            ; pc8001      ; Top              ;
+; PARTITION_NETLIST_TYPE                         ; SOURCE                                                                                                                                                                                                                                            ; --            ; pc8001      ; Top              ;
+; SLD_NODE_CREATOR_ID                            ; 110                                                                                                                                                                                                                                               ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_ENTITY_NAME                           ; sld_signaltap                                                                                                                                                                                                                                     ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT                  ; SLD_NODE_INFO=805334528                                                                                                                                                                                                                           ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT                  ; SLD_POWER_UP_TRIGGER=0                                                                                                                                                                                                                            ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT                  ; SLD_STORAGE_QUALIFIER_INVERSION_MASK_LENGTH=0                                                                                                                                                                                                     ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT                  ; SLD_ATTRIBUTE_MEM_MODE=OFF                                                                                                                                                                                                                        ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT                  ; SLD_STATE_FLOW_USE_GENERATED=0                                                                                                                                                                                                                    ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT                  ; SLD_STATE_BITS=11                                                                                                                                                                                                                                 ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT                  ; SLD_BUFFER_FULL_STOP=1                                                                                                                                                                                                                            ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT                  ; SLD_CURRENT_RESOURCE_WIDTH=1                                                                                                                                                                                                                      ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT                  ; SLD_TRIGGER_LEVEL=1                                                                                                                                                                                                                               ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT                  ; SLD_TRIGGER_IN_ENABLED=0                                                                                                                                                                                                                          ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT                  ; SLD_ADVANCED_TRIGGER_ENTITY=basic,1,                                                                                                                                                                                                              ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT                  ; SLD_TRIGGER_LEVEL_PIPELINE=1                                                                                                                                                                                                                      ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT                  ; SLD_ENABLE_ADVANCED_TRIGGER=0                                                                                                                                                                                                                     ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT                  ; SLD_SEGMENT_SIZE=1024                                                                                                                                                                                                                             ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT                  ; SLD_SAMPLE_DEPTH=1024                                                                                                                                                                                                                             ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT                  ; SLD_DATA_BITS=66                                                                                                                                                                                                                                  ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT                  ; SLD_TRIGGER_BITS=66                                                                                                                                                                                                                               ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT                  ; SLD_INVERSION_MASK=000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT                  ; SLD_INVERSION_MASK_LENGTH=222                                                                                                                                                                                                                     ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT                  ; SLD_NODE_CRC_LOWORD=10161                                                                                                                                                                                                                         ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT                  ; SLD_NODE_CRC_HIWORD=63584                                                                                                                                                                                                                         ; --            ; --          ; auto_signaltap_0 ;
+; USE_SIGNALTAP_FILE                             ; PC8001.stp                                                                                                                                                                                                                                        ; --            ; --          ; --               ;
++------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+-------------+------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------+
-; Flow Elapsed Time                                                                                                        ;
-+----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
-+----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:14     ; 1.0                     ; 295 MB              ; 00:00:14                           ;
-; Total                ; 00:00:14     ; --                      ; --                  ; 00:00:14                           ;
-+----------------------+--------------+-------------------------+---------------------+------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                             ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis      ; 00:00:20     ; 1.0                     ; 336 MB              ; 00:00:20                           ;
+; Fitter                    ; 00:00:10     ; 1.0                     ; 346 MB              ; 00:00:10                           ;
+; Assembler                 ; 00:00:02     ; 1.0                     ; 268 MB              ; 00:00:01                           ;
+; TimeQuest Timing Analyzer ; 00:00:02     ; 1.0                     ; 251 MB              ; 00:00:01                           ;
+; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 235 MB              ; 00:00:01                           ;
+; Total                     ; 00:00:35     ; --                      ; --                  ; 00:00:33                           ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
-+-----------------------------------------------------------------------------------+
-; Flow OS Summary                                                                   ;
-+----------------------+------------------+-----------+------------+----------------+
-; Module Name          ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
-+----------------------+------------------+-----------+------------+----------------+
-; Analysis & Synthesis ; H192168011032    ; Windows 7 ; 6.1        ; x86_64         ;
-+----------------------+------------------+-----------+------------+----------------+
++----------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                        ;
++---------------------------+------------------+-----------+------------+----------------+
+; Module Name               ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
++---------------------------+------------------+-----------+------------+----------------+
+; Analysis & Synthesis      ; H192168011032    ; Windows 7 ; 6.1        ; x86_64         ;
+; Fitter                    ; H192168011032    ; Windows 7 ; 6.1        ; x86_64         ;
+; Assembler                 ; H192168011032    ; Windows 7 ; 6.1        ; x86_64         ;
+; TimeQuest Timing Analyzer ; H192168011032    ; Windows 7 ; 6.1        ; x86_64         ;
+; EDA Netlist Writer        ; H192168011032    ; Windows 7 ; 6.1        ; x86_64         ;
++---------------------------+------------------+-----------+------------+----------------+
 
 
 ------------
 ; Flow Log ;
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off PC8001 -c PC8001
+quartus_fit --read_settings_files=off --write_settings_files=off PC8001 -c PC8001
+quartus_asm --read_settings_files=off --write_settings_files=off PC8001 -c PC8001
+quartus_sta PC8001 -c PC8001
+quartus_eda --read_settings_files=off --write_settings_files=off PC8001 -c PC8001
 
 
 
